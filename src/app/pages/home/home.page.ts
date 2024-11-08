@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
@@ -11,6 +11,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatRippleModule } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -28,21 +31,19 @@ import { MatIconModule } from '@angular/material/icon';
     MatDividerModule,
     MatButtonModule,
     MatIconModule,
-
-
-
+    MatCardModule,
+    MatRippleModule,
 
     //Utilidades:
     CommonModule //Comentário: Precisa importar isso para poder usar o async no html
 
   ],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   public add: boolean = false;
-
-
   public testArray: string[] = ['teste1', 'teste2', 'teste3'];
+  private _snackBar = inject(MatSnackBar);
 
   // musicas: Music[] = [];
   musicas$ = new Observable<Music[]>(); //Comentário: usar $ para informar que a variavel é observable
@@ -51,6 +52,10 @@ export class HomePage {
     private musicService: MusicService,
   ) {
     this.obterMusicasCadastradas();
+  }
+
+  ngOnInit(): void {
+    this.abrirAvisoSnackBar()
   }
 
   obterMusicasCadastradas() {
@@ -64,9 +69,19 @@ export class HomePage {
   }
 
 
-
   abrirAdd() {
     this.add = !this.add;
+  }
+
+  abrirLinkMusica(url: string): void {
+    window.open(url, '_blank');
+  }
+
+  abrirAvisoSnackBar() {
+    this._snackBar.open('Clique em uma música para ouvir', 'Fechar', {
+      duration: 10000
+    });
+
   }
 
 }

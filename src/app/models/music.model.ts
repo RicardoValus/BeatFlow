@@ -3,5 +3,6 @@ export interface Music { //Comentário: Mapear a API
     title: string,
     artist: string,
     album: string,
-    year: number
+    year: number,
+    url: string
 }

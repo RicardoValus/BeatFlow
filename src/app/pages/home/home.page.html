@@ -16,6 +16,7 @@
 
 <main>
 
+  <!-- SCROLL NO SECTION, NÃO NO MAIN -->
   <section *ngIf="add">
     <mat-form-field appearance="outline" type="number">
       <mat-label>
@@ -52,21 +53,39 @@
       <input matInput>
     </mat-form-field>
 
+    <mat-form-field appearance="outline" type="text">
+      <mat-label>
+        URL da música
+      </mat-label>
+      <input matInput>
+    </mat-form-field>
+
     <button mat-flat-button>Adicionar</button>
   </section>
 
   <mat-divider *ngIf="add"></mat-divider>
 
-  <mat-list *ngFor="let musica of musicas$ | async">
+  <mat-card *ngFor="let musica of musicas$ | async" (click)="abrirLinkMusica(musica.url)" matRipple>
+    <!-- Passando o link da música como parametro para abri-la -->
+
     <!-- Comentário: usar o async caso esteja usando observable para puxar os valores -->
     <!-- Comentário: precisa importar o CommonModule pra poder usar o async aqui -->
-    <mat-list-item>
-      {{musica.id}}
-      {{musica.title}}
-      {{musica.artist}}
-      {{musica.album}}
-      {{musica.year}}
-    </mat-list-item>
-  </mat-list>
+
+    <mat-card-header>
+      <mat-card-title>
+        {{musica.id}} - {{musica.artist}}
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        {{musica.title}}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>
+        {{musica.album}} - {{musica.year}}
+      </p>
+    </mat-card-content>
+  </mat-card>
 
 </main>
