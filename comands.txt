@@ -2,5 +2,3 @@ iniciar json server:
 json-server --watch db.json
 
 
-https://chatgpt.com/c/672e2426-1d3c-8003-808e-0299cd1f6f15
-https://www.youtube.com/watch?v=rjrQpMYtTUw&ab_channel=CristianWilliamDev
