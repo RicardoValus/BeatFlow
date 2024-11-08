@@ -1,7 +1,7 @@
 <header>
   <mat-toolbar>
     <mat-toolbar-row>
-      <span>BeatFlow</span>
+      <h3>BeatFlow</h3>
 
       <span style="flex: 1 1 auto;"></span>
 
@@ -22,45 +22,47 @@
       <mat-label>
         ID
       </mat-label>
-      <input matInput>
+      <input matInput [(ngModel)]="id" name="id">
+      <!-- Comentário: usar ngModel para jogar o dado que foi digitado no input para a variavel do TS -->
+      <!-- Comentário: usar name para evitar erro no forms -->
     </mat-form-field>
 
     <mat-form-field appearance="outline" type="text">
       <mat-label>
-        Título
+        Título*
       </mat-label>
-      <input matInput>
+      <input matInput [(ngModel)]="title" name="title">
     </mat-form-field>
 
     <mat-form-field appearance="outline" type="text">
       <mat-label>
-        Artista
+        Artista*
       </mat-label>
-      <input matInput>
+      <input matInput [(ngModel)]="artist" name="artist">
     </mat-form-field>
 
     <mat-form-field appearance="outline" type="text">
       <mat-label>
-        Álbum
+        Álbum*
       </mat-label>
-      <input matInput>
+      <input matInput [(ngModel)]="album" name="album">
     </mat-form-field>
 
     <mat-form-field appearance="outline" type="number">
       <mat-label>
-        Ano
+        Ano*
       </mat-label>
-      <input matInput>
+      <input matInput [(ngModel)]="year" name="year">
     </mat-form-field>
 
     <mat-form-field appearance="outline" type="text">
       <mat-label>
-        URL da música
+        URL da música*
       </mat-label>
-      <input matInput>
+      <input matInput [(ngModel)]="url" name="url">
     </mat-form-field>
 
-    <button mat-flat-button>Adicionar</button>
+    <button mat-flat-button (click)="cadastrarMusica()">Adicionar</button>
   </section>
 
   <mat-divider *ngIf="add"></mat-divider>
@@ -73,8 +75,12 @@
 
     <mat-card-header>
       <mat-card-title>
-        {{musica.id}} - {{musica.artist}}
+        <ng-container *ngIf="musica.id">
+          {{ musica.id }} -
+        </ng-container>
+        {{ musica.artist }}
       </mat-card-title>
+
 
       <mat-card-subtitle>
         {{musica.title}}
@@ -86,6 +92,22 @@
         {{musica.album}} - {{musica.year}}
       </p>
     </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-icon-button>
+        <!-- (click)="editarMusica(musica)" -->
+
+        <!-- Comentário: Passará a musica clicada como parametro para a edição -->
+        <mat-icon>
+          edit
+        </mat-icon>
+      </button>
+      <button mat-icon-button class="delete-btn">
+        <mat-icon>
+          delete
+        </mat-icon>
+      </button>
+    </mat-card-actions>
   </mat-card>
 
 </main>

@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -35,7 +36,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatRippleModule,
 
     //Utilidades:
-    CommonModule //Comentário: Precisa importar isso para poder usar o async no html
+    CommonModule, //Comentário: Precisa importar isso para poder usar o async no html
+    FormsModule,
+
 
   ],
 })
@@ -46,7 +49,15 @@ export class HomePage implements OnInit {
   private _snackBar = inject(MatSnackBar);
 
   // musicas: Music[] = [];
-  musicas$ = new Observable<Music[]>(); //Comentário: usar $ para informar que a variavel é observable
+  public musicas$ = new Observable<Music[]>(); //Comentário: usar $ para informar que a variavel é observable
+
+  //Forms
+  id = '';
+  title = ''; //Comentário: Nome da musica
+  artist = '';
+  album = '';
+  year = '';
+  url = '';
 
   constructor(
     private musicService: MusicService,
@@ -68,6 +79,28 @@ export class HomePage implements OnInit {
 
   }
 
+
+
+  cadastrarMusica() {
+    if (!this.title || !this.artist) {
+      return
+    }
+
+    this.musicService.cadastrarMusica({
+      id: this.id,
+      title: this.title,
+      artist: this.artist,
+      album: this.album,
+      year: this.year,
+      url: this.url
+    }).subscribe(() => this.obterMusicasCadastradas())
+    // Comentário: na hora que clicar em cadastrarMusica, vai executar o cadastrarMusica do service passando essas propriedades, e na hora que voltar requisição que deu createComponent, então irá executar o obterMusicasCadastradas, vai jogar no observable um novo array de musics
+  }
+
+  // editarMusica(musica: Music) {
+  //   this.id = musica.id!.toString();
+  //   this.title = musica.title;
+  // }
 
   abrirAdd() {
     this.add = !this.add;

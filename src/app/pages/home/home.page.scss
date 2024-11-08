@@ -2,7 +2,7 @@
   >header {
     >mat-toolbar {
       >mat-toolbar-row {
-        background-color: #D32F2F;
+        background-color: #7F00FF;
 
         >button {
           box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
@@ -13,7 +13,7 @@
   }
 
   >main {
-    background-color: #212121;
+    background-color: #121212;
     height: 100%;
     padding: 0 0.625rem 0 0.625rem;
     max-height: 100vh;
@@ -29,13 +29,35 @@
       }
     }
 
-    >mat-card{
-      margin: 10px 10px;
+    >mat-card {
+      margin: 0.625rem 0.625rem;
+
+      >mat-card-title {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+      }
+
+      >mat-card-content {
+        >p {
+          color: #B3B3B3;
+        }
+      }
+
+      >mat-card-actions{
+        display: flex;
+        justify-content: flex-end;
+
+        >button.delete-btn{
+          margin-left: 0.625rem;
+        }
+      }
     }
   }
 
   button {
-    background-color: #F44336;
+    background-color: #1B1B3A;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
   }
 
   button,
@@ -45,6 +67,10 @@
   }
 }
 
-
-
 // degrade: background: linear-gradient(to right, #D32F2F, #FF9800);
+
+// colocar ... ao quebrar horizontalmente: 
+// overflow: hidden;
+// text-overflow: ellipsis;
+// white-space: nowrap;
+// width: 20.3125rem;

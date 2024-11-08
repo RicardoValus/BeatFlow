@@ -1,8 +1,8 @@
 export interface Music { //Comentário: Mapear a API
-    id?: number,
+    id?: string,
     title: string,
     artist: string,
     album: string,
-    year: number,
+    year: string,
     url: string
 }

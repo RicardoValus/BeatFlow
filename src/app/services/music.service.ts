@@ -8,7 +8,7 @@ import { Music } from '../models/music.model';
 })
 export class MusicService {
 
-  private url = environment.api
+  private url = `${environment.api}/musics` //Comentário: montamos a url para acessar o /musics da API onde estão os dados
 
   constructor(
     private httpClient: HttpClient //Comentário: o angular vai preencher (injetar dependencia) nesta variavel httpClient com a importação
@@ -16,9 +16,17 @@ export class MusicService {
 
 
   obterMusicas() { //Comentário: vai fazer um request pra API pra retornar as musicas que estão no db.json
-
-    return this.httpClient.get<Music[]>(this.url + '/musics'); //Comentário: dentro de maior e menor <>, especificar o tipo do que está vindo da API, no caso importamos o Music que é a model | E ai é onde montamos a url para acessar o /musics da API onde estão os dados
-
+    return this.httpClient.get<Music[]>(this.url); //Comentário: dentro de maior e menor <>, especificar o tipo do que está vindo da API, no caso importamos o Music que é a model
   }
 
+  cadastrarMusica(musica: Music) {
+    return this.httpClient.post<Music>(this.url, musica);
+  }
+
+  //Comentário: o put atualiza todo o objeto, parth, atualiza partes de um objeto
+  editarMusica(musica: Music) {
+    return this.httpClient.put<Music>(this.url, musica);
+  }
+
+  
 }
