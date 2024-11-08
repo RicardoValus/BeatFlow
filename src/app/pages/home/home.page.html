@@ -1,0 +1,72 @@
+<header>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span>BeatFlow</span>
+
+      <span style="flex: 1 1 auto;"></span>
+
+      <button mat-icon-button (click)="abrirAdd()">
+        <mat-icon>
+          add
+        </mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
+
+<main>
+
+  <section *ngIf="add">
+    <mat-form-field appearance="outline" type="number">
+      <mat-label>
+        ID
+      </mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" type="text">
+      <mat-label>
+        Título
+      </mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" type="text">
+      <mat-label>
+        Artista
+      </mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" type="text">
+      <mat-label>
+        Álbum
+      </mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" type="number">
+      <mat-label>
+        Ano
+      </mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <button mat-flat-button>Adicionar</button>
+  </section>
+
+  <mat-divider *ngIf="add"></mat-divider>
+
+  <mat-list *ngFor="let musica of musicas$ | async">
+    <!-- Comentário: usar o async caso esteja usando observable para puxar os valores -->
+    <!-- Comentário: precisa importar o CommonModule pra poder usar o async aqui -->
+    <mat-list-item>
+      {{musica.id}}
+      {{musica.title}}
+      {{musica.artist}}
+      {{musica.album}}
+      {{musica.year}}
+    </mat-list-item>
+  </mat-list>
+
+</main>

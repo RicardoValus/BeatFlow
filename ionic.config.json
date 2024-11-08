@@ -1,0 +1,7 @@
+{
+  "name": "BeatFlow",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

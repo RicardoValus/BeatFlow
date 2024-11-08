@@ -1,0 +1,46 @@
+:host {
+  >header {
+    >mat-toolbar {
+      >mat-toolbar-row {
+        background-color: #D32F2F;
+
+        >button {
+          box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+      }
+    }
+  }
+
+  >main {
+    background-color: #212121;
+    height: 100%;
+    padding: 0 0.625rem 0 0.625rem;
+    max-height: 100vh;
+    overflow-y: auto;
+
+    >section {
+      display: flex;
+      flex-direction: column;
+      padding: 1.875rem 1.875rem 1.875rem 1.875rem;
+
+      >button {
+        box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  button {
+    background-color: #F44336;
+  }
+
+  button,
+  mat-label,
+  span {
+    color: #FFFFFF;
+  }
+}
+
+
+
+// degrade: background: linear-gradient(to right, #D32F2F, #FF9800);
