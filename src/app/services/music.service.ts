@@ -25,8 +25,15 @@ export class MusicService {
 
   //Comentário: o put atualiza todo o objeto, parth, atualiza partes de um objeto
   editarMusica(musica: Music) {
-    return this.httpClient.put<Music>(this.url, musica);
+    return this.httpClient.put<Music>(`${this.url}/${musica.id}`, musica);
   }
+
+  obterMusicaPorId(id: string) {
+    return this.httpClient.get<Music>(`${this.url}/${id}`);
+  }
+  
+
+  
 
   
 }

@@ -1,7 +1,7 @@
 {
   "musics": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Duality",
       "artist": "Slipknot",
       "album": "Vol. 3: (The Subliminal Verses)",
@@ -9,7 +9,7 @@
       "url": "https://youtu.be/6fVE8kSM43I?si=MF4as2uN1LWsYFFI"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Psychosocial",
       "artist": "Slipknot",
       "album": "All Hope Is Gone",
@@ -17,7 +17,7 @@
       "url": "https://youtu.be/5abamRO41fE?si=oqcZwhJwG6Gwa6OZ"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Before I Forget",
       "artist": "Slipknot",
       "album": "Vol. 3: (The Subliminal Verses)",
@@ -25,7 +25,7 @@
       "url": "https://youtu.be/qw2LU1yS7aw?si=kJZop3DpMh_iwyrQ"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Wait and Bleed",
       "artist": "Slipknot",
       "album": "Slipknot",
@@ -33,7 +33,7 @@
       "url": "https://youtu.be/B1zCN0YhW1s?si=6f2yJVqkCwzNA4pP"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "The Devil in I",
       "artist": "Slipknot",
       "album": "5: The Gray Chapter",
@@ -41,7 +41,7 @@
       "url": "https://youtu.be/XEEasR7hVhA?si=Cj4iDEO7A3eWZIGg"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Snuff",
       "artist": "Slipknot",
       "album": "All Hope Is Gone",
@@ -49,7 +49,7 @@
       "url": "https://youtu.be/LXEKuttVRIo?si=_B6LPPQWdxsx-KIg"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Spit It Out",
       "artist": "Slipknot",
       "album": "Slipknot",
@@ -57,7 +57,7 @@
       "url": "https://youtu.be/ZPUZwriSX4M?si=lRyuoOtJQaodh38W"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "People = Shit",
       "artist": "Slipknot",
       "album": "Iowa",
@@ -65,7 +65,7 @@
       "url": "https://youtu.be/qqK1FrO3BdM?si=-pdWpvOJxL7ZfomM"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Left Behind",
       "artist": "Slipknot",
       "album": "Iowa",
@@ -73,7 +73,7 @@
       "url": "https://youtu.be/D1jQKpse7Yw?si=29dWpO_48Xlrr422"
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "All Out Life",
       "artist": "Slipknot",
       "album": "All Out Life (Single)",
@@ -81,7 +81,7 @@
       "url": "https://youtu.be/wLoYIBEZEfw?si=BWzvHDGChDKyhQ6f"
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Unsainted",
       "artist": "Slipknot",
       "album": "We Are Not Your Kind",
@@ -89,7 +89,7 @@
       "url": "https://youtu.be/VpATBBRajP8?si=4kQEcicUb8O2Nm0m"
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "The Heretic Anthem",
       "artist": "Slipknot",
       "album": "Iowa",

@@ -94,7 +94,7 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-icon-button>
+      <button mat-icon-button (click)="navegarParaEdicao(musica.id, $event)">
         <!-- (click)="editarMusica(musica)" -->
 
         <!-- Comentário: Passará a musica clicada como parametro para a edição -->

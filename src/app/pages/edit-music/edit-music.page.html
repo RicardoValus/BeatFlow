@@ -1,0 +1,40 @@
+<header>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="navegarParaTras()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h3>Editar Música</h3>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
+
+<main>
+  <mat-form-field appearance="outline">
+    <mat-label>Título</mat-label>
+    <input matInput [(ngModel)]="music.title" name="title">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Artista</mat-label>
+    <input matInput [(ngModel)]="music.artist" name="artist">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Álbum</mat-label>
+    <input matInput [(ngModel)]="music.album" name="album">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Ano</mat-label>
+    <input matInput [(ngModel)]="music.year" name="year">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>URL da Música</mat-label>
+    <input matInput [(ngModel)]="music.url" name="url">
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="atualizarMusica()">Atualizar</button>
+
+</main>

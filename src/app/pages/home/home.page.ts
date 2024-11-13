@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -61,13 +62,22 @@ export class HomePage implements OnInit {
 
   constructor(
     private musicService: MusicService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
-    this.obterMusicasCadastradas();
+
   }
 
   ngOnInit(): void {
+    this.activatedRoute.url.subscribe(() => { //Comentário: essa função serve pra verificar se foi feito rota, caso sim, ele vai rodar o ngOnInit de novo pra chamar o get e atualizar
+      this.obterMusicasCadastradas();
+    });
+
+    this.obterMusicasCadastradas();
     this.abrirAvisoSnackBar()
+    
   }
+  
 
   obterMusicasCadastradas() {
     // this.musicService.obterMusicas()
@@ -76,10 +86,7 @@ export class HomePage implements OnInit {
     //   }); //Comentário: .subscribe (to me inscrevendo na função de requisição de obterMusicas do service que retorna um observable)
 
     this.musicas$ = this.musicService.obterMusicas(); //Comentário: não é necessário usar o .subscribe acima, o ideia é com o observable que estamos montando aqui
-
   }
-
-
 
   cadastrarMusica() {
     if (!this.title || !this.artist) {
@@ -114,7 +121,11 @@ export class HomePage implements OnInit {
     this._snackBar.open('Clique em uma música para ouvir', 'Fechar', {
       duration: 10000
     });
+  }
 
+  navegarParaEdicao(id: string, event: Event) {
+    event.stopPropagation(); //Comentário: Event para não redirecionar para o link ao clicar no botão
+    this.router.navigate(['/edit-music', id]); //Comentário: passando o id como parametro pra navegar pro ticket clicado
   }
 
 }
