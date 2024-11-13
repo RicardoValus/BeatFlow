@@ -25,7 +25,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
-    
+
 
 
     //Utilidades:
@@ -38,6 +38,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class EditMusicPage implements OnInit {
 
   public music: Music = { id: '', title: '', artist: '', album: '', year: '', url: '' };
+
   private _snackBar = inject(MatSnackBar);
 
   constructor(
@@ -48,14 +49,17 @@ export class EditMusicPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    // Comentário: Obtém o valor do parâmetro 'id' da URL da musica
     const musicId = this.route.snapshot.paramMap.get('id');
     if (musicId) {
+      // Comentário: Chama o serviço para obter os dados da música com base no 'id' e, ao receber a resposta,
+      // Comentário: atribui os dados da música clicada à variável 'this.music' pra listar
       this.musicService.obterMusicaPorId(musicId).subscribe(musica => this.music = musica);
     }
   }
 
   atualizarMusica() {
-    this.musicService.editarMusica(this.music).subscribe(() => {
+    this.musicService.editarMusica(this.music).subscribe(() => { //Comentário: passando os dados digitados no form do html como parametro para o service
       this.router.navigate(['/home']);
       this.abrirAvisoSnackBar();
     });

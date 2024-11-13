@@ -74,10 +74,9 @@ export class HomePage implements OnInit {
     });
 
     this.obterMusicasCadastradas();
-    this.abrirAvisoSnackBar()
-    
+
+    this.abrirAvisoSnackBar();
   }
-  
 
   obterMusicasCadastradas() {
     // this.musicService.obterMusicas()
@@ -102,12 +101,18 @@ export class HomePage implements OnInit {
       url: this.url
     }).subscribe(() => this.obterMusicasCadastradas())
     // Comentário: na hora que clicar em cadastrarMusica, vai executar o cadastrarMusica do service passando essas propriedades, e na hora que voltar requisição que deu createComponent, então irá executar o obterMusicasCadastradas, vai jogar no observable um novo array de musics
+    
+    this._snackBar.open('Música cadastrada com sucesso!', 'Fechar', { duration: 3000 });
   }
 
-  // editarMusica(musica: Music) {
-  //   this.id = musica.id!.toString();
-  //   this.title = musica.title;
-  // }
+  excluirMusica(id: string, event: Event) {
+    event.stopPropagation();
+    this.musicService.excluirMusica(id).subscribe(() => {
+      this.obterMusicasCadastradas(); // Comentário: Atualiza a lista após a exclusão
+      
+      this._snackBar.open('Música excluída com sucesso!', 'Fechar', { duration: 3000 });
+    })
+  }
 
   abrirAdd() {
     this.add = !this.add;
@@ -119,7 +124,7 @@ export class HomePage implements OnInit {
 
   abrirAvisoSnackBar() {
     this._snackBar.open('Clique em uma música para ouvir', 'Fechar', {
-      duration: 10000
+      duration: 3000
     });
   }
 

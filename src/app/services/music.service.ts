@@ -31,9 +31,8 @@ export class MusicService {
   obterMusicaPorId(id: string) {
     return this.httpClient.get<Music>(`${this.url}/${id}`);
   }
-  
 
-  
-
-  
+  excluirMusica(id: string){
+    return this.httpClient.delete(`${this.url}/${id}`);
+  }
 }

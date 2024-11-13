@@ -16,11 +16,10 @@
 
 <main>
 
-  <!-- SCROLL NO SECTION, NÃO NO MAIN -->
   <section *ngIf="add">
     <mat-form-field appearance="outline" type="number">
       <mat-label>
-        ID
+        ID*
       </mat-label>
       <input matInput [(ngModel)]="id" name="id">
       <!-- Comentário: usar ngModel para jogar o dado que foi digitado no input para a variavel do TS -->
@@ -102,7 +101,7 @@
           edit
         </mat-icon>
       </button>
-      <button mat-icon-button class="delete-btn">
+      <button mat-icon-button class="delete-btn" (click)="excluirMusica(musica.id, $event)">
         <mat-icon>
           delete
         </mat-icon>
